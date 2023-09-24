@@ -1,4 +1,3 @@
-The time complexity of the Bubble sort algorithm is as follows:
-In the best case: O(n)
-In the average case: O(n^2)
-In the worst case: O(n^2)
+O(n)
+O(n^2)
+O(n^2)
