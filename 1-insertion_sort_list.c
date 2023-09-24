@@ -1,49 +1,45 @@
 #include "sort.h"
 /**
- *swap_node - swap 2 nodes in a doubly-linked list
- *@a: adress of first node
- *@b: adress of second node
- *Return: void
- */
-void swap(listint_t *a, listint_t *b)
-{
-        if (a->prev)
-                a->prev->next = b;
-        if (b->next)
-                b->next->prev = a;
-        a->next = b->next;
-        b->prev = a->prev;
-        a->prev = b;
-        b->next = a;
-
-}
-
-/**
  * insertion_sort_list - function that sorts a doubly linked list
- *  @list: adress of pointer to head node 
- *   	Return: void 
+ * @list: Dobule linked list to sort
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *i, *j;
+	listint_t *node;
 
-	if (!list || !*list || !(*list)->next)
+	if (list == NULL || (*list)->next == NULL)
 		return;
-	i = (*list)->next;
-	while (i)
+	node = (*list)->next;
+	while (node)
 	{
-		j = i;
-		i = i ->next;
-		while {j && j->prev} 
-		}
-			if {j->prev->n > j->n}
+		while ((node->prev) && (node->prev->n > node->n))
 		{
-			swap(j->prev, j);
-			if (!j->prev)
-				*list = j;
-			print_list(const listint_t *)*list};
+			node = swap_node(node, list);
+			print_list(*list);
 		}
-else { 
-		j = j->prev;
+		node = node->next;
+	}
+}
+/**
+ *swap_node - swap a node for his  previous one
+ *@node: node
+ *@list: node list
+ *Return: return a pointer to a node which was enter it
+ */
+listint_t *swap_node(listint_t *node, listint_t **list)
+{
+	listint_t *back = node->prev, *current = node;
+	/*NULL, 19, 48, 9, 71, 13, NULL*/
 
+	back->next = current->next;
+	if (current->next)
+		current->next->prev = back;
+	current->next = back;
+	current->prev = back->prev;
+	back->prev = current;
+	if (current->prev)
+		current->prev->next = current;
+	else
+		*list = current;
+	return (current);
 }
