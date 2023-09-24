@@ -1,48 +1,38 @@
-#include <stdio.h>
+#include "sort.h"
 
-void print_array(int *array, size_t size) {
-    size_t i;
-    
-    for (i = 0; i < size; i++) {
-        printf("%d", array[i]);
-        if (i != size - 1) {
-            printf(", ");
-        }
-    }
-    printf("\n");
-}
+/**
+ * selection_sort - sorts an array of integers 
+ * @array: array of integers to be sorted
+ * @size: amount of elements in array
+ */
+void selection_sort(int *array, size_t size)
+{
+	int i, k, min_k, temp, n = (int)size;
 
-void selection_sort(int *array, size_t size) {
-    size_t i, j;
-    
-    for (i = 0; i < size - 1; i++) {
-        size_t min_index = i;
-        
-        for (j = i + 1; j < size; j++) {
-            if (array[j] < array[min_index]) {
-                min_index = j;
-            }
-        }
-        
-        if (min_index != i) {
-            int temp = array[i];
-            array[i] = array[min_index];
-            array[min_index] = temp;
-        }
-        
-        print_array(array, size);
-    }
-}
+	if (!array || size < 2)
+		return;
 
-int main(void) {
-    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-    size_t n = sizeof(array) / sizeof(array[0]);
-
-    print_array(array, n);
-    printf("\n");
-    selection_sort(array, n);
-    printf("\n");
-    print_array(array, n);
-    
-    return 0;
+	/* at every position in the n-member array */
+	for (i = 0; i < n - 1; i++)
+	{
+		/* scan from that position to the end, */
+		min_k = i;
+		for (k = i + 1; k < n; k++)
+		{
+			/* determine the minimum value in that range */
+			if (array[k] < array[min_k])
+			{
+				min_k = k;
+			}
+		}
+		/* and if it is lower than the value at start of range, */
+		/* swap them */
+		if (min_k != i)
+		{
+			temp = array[i];
+			array[i] = array[min_k];
+			array[min_k] = temp;
+			print_array(array, size);
+		}
+	}
 }
