@@ -5,34 +5,30 @@
  * @array: array of integers to be sorted
  * @size: amount of elements in array
  */
+
 void selection_sort(int *array, size_t size)
 {
-	int i, k, min_k, temp, n = (int)size;
+	size_t i, index;
+	int tmp, swap, flag = 0;
 
-	if (!array || size < 2)
+	if (array == NULL)
 		return;
-
-	/* at every position in the n-member array */
-	for (i = 0; i < n - 1; i++)
+	for (i = 0; i < size; i++)
 	{
-		/* scan from that position to the end, */
-		min_k = i;
-		for (k = i + 1; k < n; k++)
+		tmp = i;
+		flag = 0;
+		for (index = i + 1; index < size; index++)
 		{
-			/* determine the minimum value in that range */
-			if (array[k] < array[min_k])
+			if (array[tmp] > array[index])
 			{
-				min_k = k;
+				tmp = index;
+				flag += 1;
 			}
 		}
-		/* and if it is lower than the value at start of range, */
-		/* swap them */
-		if (min_k != i)
-		{
-			temp = array[i];
-			array[i] = array[min_k];
-			array[min_k] = temp;
+		swap = array[i];
+		array[i] = array[tmp];
+		array[tmp] = swap;
+		if (flag != 0)
 			print_array(array, size);
-		}
 	}
 }
