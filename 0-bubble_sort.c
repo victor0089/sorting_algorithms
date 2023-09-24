@@ -1,41 +1,32 @@
-#include <stdio.h>
+#include "sort.h"
+/**
+ * bubble_sort function that sorts an array of ints
+ * using bubble sort algorithms
+ *
+ * @array: array of ints 
+ * @size: size of array
+ */
+void bubble_sort(int *array, size_t size)
+{
+	int temp;
+	siz-t i, s,
 
-void print_array(int *array, size_t size) {
-    size_t i;
-    
-    for (i = 0; i < size; i++) {
-        printf("%d", array[i]);
-        if (i != size - 1) {
-            printf(", ");
-        }
-    }
-    printf("\n");
-}
+		if(!array || !size)
+			return;
 
-void bubble_sort(int *array, size_t size) {
-    size_t i, j;
-    
-    for (i = 0; i < size - 1; i++) {
-        for (j = 0; j < size - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-        print_array(array, size);
-    }
-}
-
-int main(void) {
-    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-    size_t n = sizeof(array) / sizeof(array[0]);
-
-    print_array(array, n);
-    printf("\n");
-    bubble_sort(array, n);
-    printf("\n");
-    print_array(array, n);
-    
-    return 0;
-}
+	i = 0;
+	while (i < size)
+	{
+	for (s = 0; s < size - 1; s++)
+	{
+		if (array[s] > array[s + 1])
+		(
+                int temp = array[s];
+                array[s] = array[s + 1];
+                array[s + 1] = temp;
+		print_array(array, size);
+                )
+	}
+       }
+      i++;
+ }
