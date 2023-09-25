@@ -1,25 +1,45 @@
 #include "sort.h"
+
 /**
- * bubble_sort - sort array elements from miN- max value
- * @array: array
- * @size: array size
+ * swap_ints - Swaptwo integersanarray.
+ * @a: The first integer  swap.
+ * @b: The second integer  swap.
+ */
+void swap_ints(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
+ * bubble_sort - Sort anrray  integers in ascending .
+ * @array: An array of integers to sort.
+ * @size: The size array.
+ * Description: Prints  array  each swap.
  */
 void bubble_sort(int *array, size_t size)
 {
+	size_t i, len = size;
+	bool bubbly = false;
 
-	size_t i, index, tmp = 0;
-
-	if (size < 2)
+	if (array == NULL || size < 2)
 		return;
-	for (i = 0; i < size; i++)
-		for (index = 0; index < size; index++)
+
+	while (bubbly == false)
+	{
+		bubbly = true;
+		for (i = 0; i < len - 1; i++)
 		{
-			if (array[index] > array[index + 1] && array[index + 1])
+			if (array[i] > array[i + 1])
 			{
-			tmp = array[index];
-			array[index] = array[index + 1];
-			array[index + 1] = tmp;
-			print_array(array, size);
+				swap_ints(array + i, array + i + 1);
+				print_array(array, size);
+				bubbly = false;
 			}
 		}
+		len--;
+	}
 }
