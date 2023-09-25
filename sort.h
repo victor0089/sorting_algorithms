@@ -2,6 +2,22 @@
 #define SORT_H
 
 #include <stdlib.h>
+#include <stdlib.h>
+/* Comparison  macros  bitonic sort */
+#define UP 0
+#define DOWN 1
+
+/**
+ * enum bool - Enumeration Boolean values.
+ * @false: Equals 0.
+ * @true: Equals 1.
+ */
+typedef enum bool
+{
+	false = 0,
+	true
+} bool;
+
 /**
  * struct listint_s - Doubly linked list node
  *
