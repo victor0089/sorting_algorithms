@@ -1,5 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * calloc -> function calloc
  * @nume  -> number of elememts 
