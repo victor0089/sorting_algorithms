@@ -18,7 +18,7 @@ void *_calloc(unsigned int nume, unsigned int size)
 	p = malloc(nume * size);
 	if (p == '\0')
 		return ('\0');
-	for (i = 0, i< (nume * size); i++;)
+	for (i = 0, i< (nume * size); i++)
 		p[i] = '\0';
 	return(p);
 }
